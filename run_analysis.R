@@ -7,36 +7,36 @@ names(activity) <- c("activity_id", "activity_name")
 features <- read.delim("features.txt", header = FALSE, sep = " ")
 names(features) <- c("feature_id", "feature_name")
 # Read subject_train_data
-subject_train <- read.csv("train/subject_train.txt", header = FALSE, sep = "")
+subject_train <- read.delim("train/subject_train.txt", header = FALSE, sep = "")
 
 #Assign column name for subject data
 names(subject_train) <- c("subject_id")
 
 #Read x_train data
-x_train <- read.csv("train/x_train.txt", header = FALSE, sep = "")
+x_train <- read.delim("train/x_train.txt", header = FALSE, sep = "")
 
 #Assign column names for x_train data using feature names
 names(x_train) <- features$feature_name
 
 # Read y-train data
-y_train <- read.csv("train/y_train.txt", header = FALSE, sep = "")
+y_train <- read.delim("train/y_train.txt", header = FALSE, sep = "")
 
 #Name the column as activity_id as this represents the 6 different activities
 names(y_train) <- c("activity_id")
 
 ## do the same for test data ##
 ## Read subject_test data
-subject_test <- read.csv("test/subject_test.txt", header = FALSE, sep = "")
+subject_test <- read.delim("test/subject_test.txt", header = FALSE, sep = "")
 names(subject_test) <- c("subject_id")
 
 #Read x_test data
-x_test <- read.csv("test/x_test.txt", header = FALSE, sep = "")
+x_test <- read.delim("test/x_test.txt", header = FALSE, sep = "")
 
 #Assign column names for x_test data using feature names
 names(x_test) <- features$feature_name
 
 # Read y-test data
-y_test <- read.csv("test/y_test.txt", header = FALSE, sep = "")
+y_test <- read.delim("test/y_test.txt", header = FALSE, sep = "")
 
 #Name the column as activity_id as this represents the 6 different activities
 names(y_test) <- c("activity_id")
@@ -83,7 +83,7 @@ names(tbl_template)[4] <- "obs"
 # create empty table to hold transformed data
 tbl_transform <- filter(tbl_template, activity_id == 100)
 
-# for loop to transpose the columns as rows
+# for loop to transpose the observation columns as rows
 for (x in 3: length(names(tbl_train))-1) {
   
   tbl_1 <- select(tbl_train_test,51, 1,2,x)
