@@ -3,7 +3,8 @@ This repository has data and script used for the getting and cleaning data proje
 
 ## run_analysis.R
 
-The tidaydata.txt file attached can be read into R using the following command:
+The tidydata.txt file attached can be read into R using the following command:
+
 tbl_read <- read.table("TidyData.txt", header = TRUE)
 
 This is the script that performs the analysis required to complete the project. The script is written to achieve the following objectives:
